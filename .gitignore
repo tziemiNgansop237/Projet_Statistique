@@ -2,7 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+#data base
+*.parquet
+*.xlsx
 # C extensions
 *.so
 
