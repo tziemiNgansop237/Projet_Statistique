@@ -15,8 +15,8 @@ library(skimr)
 
 
 
-data_num <- read_parquet("C:/Users/damso/Documents/Projet_Statistique/data_num.parquet")
-data_cat <- read_parquet("C:/Users/damso/Documents/Projet_Statistique/category_data.parquet")
+data_num <- read_parquet("C:/Users/damso/Documents/data/data_num.parquet")
+data_cat <- read_parquet("C:/Users/damso/Documents/data/category_data.parquet")
 
 
 # Convertir les colonnes de `data_cat` en facteur
