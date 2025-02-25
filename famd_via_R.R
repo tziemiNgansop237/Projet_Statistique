@@ -10,7 +10,7 @@ library(arrow)
 library(dplyr)
 library(tidyverse)
 library(skimr)
-
+library(summarytools)
 # Importer les datasets
 
 
@@ -27,6 +27,15 @@ data_cat<- as.data.frame(data_cat)
 
 data_num<- as.data.frame(data_num)
 
+
+# Standardiser les variables numériques (centrer-réduire)
+data_num_scaled <- as.data.frame(scale(data_num))  # Applique la standardisation
+
+# Vérifier la moyenne et l'écart-type après standardisation
+cat("Moyenne après standardisation :", colMeans(data_num_scaled), "\n")
+cat("Écart-type après standardisation :", apply(data_num_scaled, 2, sd), "\n")
+
+dfSummary(data_num_scaled) %>% view()
 
 # Fusionner les deux bases sur `unique_learner_id`
 data_merged <- bind_cols(data_num, data_cat)
@@ -89,7 +98,3 @@ write.csv(result_var_df, "C:/Users/damso/Documents/data/result_var_coord.csv", r
 write.csv(result_df_variance, "C:/Users/damso/Documents/data/result_variance.csv", row.names = TRUE)
 
 
-
-
-# Vérification des fichiers exportés
-list.files(export_path)
